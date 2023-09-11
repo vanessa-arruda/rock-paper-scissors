@@ -1,5 +1,5 @@
 # rock-paper-scissors
-## Version 1.0 - Game in Javascript
+## Version 1.1.0 - Game in Javascript
 
 The user is prompted to type "Rock", "Paper" or "Scissors" in the console
 and plays against the computer, that will randomly choose an option.
