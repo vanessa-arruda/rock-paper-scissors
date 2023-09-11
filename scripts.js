@@ -52,7 +52,7 @@ function playRound(playerSelection, computerSelection) {
 function game() {
 
     let playerScoreResult = 0;
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 5; i++) {
         //call the function to get the computer choice and assign to variable
         const computerSelection = getComputerChoice();
         //prompt user for choice and convert to lowercase (to become case insensitive)
@@ -80,3 +80,5 @@ function game() {
         return 0;
     }
 }
+
+game();
