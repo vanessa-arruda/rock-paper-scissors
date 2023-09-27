@@ -1,12 +1,13 @@
+//function to assign up to three number values, one for each option (rock/paper/scissors)
 function getComputerChoice () {
     const computerChoice = Math.floor(Math.random() * 10) % 3;
 
     if(computerChoice === 0){
         return "rock";
     } else if(computerChoice === 1){
-        return "paper"
+        return "paper";
     } else{
-        return "scissors"
+        return "scissors";
     }
 }
 //runs one single round/match
@@ -43,44 +44,96 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//runs multiple game matches
-function game() {
+let playerScore = 0;
+let computerScore = 0;
 
-    let playerScore = 0;
-    let computerScore = 0;
+//runs multiple game matches - now 5 matches
+function game(playerSelection) {
     let roundResult;
-    
-    for (let i = 0; i < 5; i++) {
 
-        const computerSelection = getComputerChoice();
-        let playerSelection = prompt("Rock, Paper or Scissors?");
-        playerSelection = playerSelection.toLowerCase();
-    
-        if(playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
-            console.log("invalid choice");
-            i--;
-        } else {
-            roundResult = playRound(playerSelection, computerSelection);
+    const computerSelection = getComputerChoice();
 
-            if(roundResult === "playerwin") {
-                ++playerScore;
-            } else if (roundResult === "playerlose") {
-                ++computerScore;
-            } else {
-                ++playerScore;
-                ++computerScore;
-            }
-            console.log("Player Score: ", playerScore, "Computer Score: ", computerScore);
-        }
-    }
+    roundResult = playRound(playerSelection, computerSelection);
 
-    if(playerScore > computerScore) {
-        console.log("You are the winner!");
-    } else if(computerScore === playerScore) {
-        console.log("It's a final tie!");
+    if(roundResult === "playerwin") {
+        ++playerScore;
+    } else if (roundResult === "playerlose") {
+        ++computerScore;
     } else {
-        console.log("Uh-Oh! You lost the match!");
+        ++playerScore;
+        ++computerScore;
+    }
+    console.log("Player Score: ", playerScore, "Computer Score: ", computerScore);
+    
+    //display playerScore
+    const playerScoreElement = document.querySelector('#player-score');
+    playerScoreElement.textContent = playerScore;
+
+    const computerScoreElement = document.querySelector('#computer-score');
+    computerScoreElement.textContent = computerScore;
+
+    if(playerScore === 5 || computerScore === 5) {
+
+        const textResult = document.querySelector('#text-result');
+        const gameButtons = document.querySelectorAll('.buttons');
+
+        if(playerScore > computerScore) {
+            textResult.textContent = "WOW! You are LUCKY today! You are the winner!";   
+            
+        } else if(computerScore === playerScore) {
+            textResult.textContent = "Well, not bad, but I wouldn't take high chances. It's a final tie!";
+
+        } else {
+            textResult.textContent = "Luck is not a friend today! Try again tomorrow and keep your pockets closed until then. You lost the match!";
+        }
+
+        for (const element of gameButtons) {
+            element.setAttribute("disabled", true);
+        }
+        
     }
 }
 
-game();
+const btnRock = document.querySelector('#button-rock');
+btnRock.addEventListener('click', () => {
+    const playerSelection = 'rock';
+    game(playerSelection);
+})
+
+const btnPaper = document.querySelector('#button-paper');
+btnPaper.addEventListener('click', () => {
+    const playerSelection = 'paper';
+    game(playerSelection);
+})
+
+const btnScissors = document.querySelector('#button-scissors');
+btnScissors.addEventListener('click', () => {
+    const playerSelection = 'scissors';
+    game(playerSelection);
+});
+
+const restart = document.querySelector('#restart');
+restart.addEventListener('click', () => {
+    //reset score
+    playerScore = 0;
+    computerScore = 0;
+
+    //clear result message
+    const textResult = document.querySelector('#text-result');
+    textResult.textContent = "";
+
+    //update player and computer scores
+    const playerScoreElement = document.querySelector('#player-score');
+    playerScoreElement.textContent = playerScore;
+
+    const computerScoreElement = document.querySelector('#computer-score');
+    computerScoreElement.textContent = computerScore;
+
+    //reactivate buttons for new game
+    const gameButtons = document.querySelectorAll('.buttons');
+
+    for (const element of gameButtons) {
+        element.removeAttribute("disabled");
+    }
+
+})

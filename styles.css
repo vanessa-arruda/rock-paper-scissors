@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+* {
+    font-family: 'Play', sans-serif;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.top-container {
+    display:flex;
+    margin: 50px 150px 20px 150px;
+    justify-content: center;
+    align-content: center;
+    padding: 40 px;
+}
+
+#logo-img {
+    width: 80px;
+    height: 80px;
+    padding-right: 20px;
+    align-items: center;
+}
+
+#game-title {
+    font-size: 45px;
+    font-weight: 700;
+    
+}
+
+#text-rule-container {
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 5 px;
+    margin: 0px 100px 0px 100px;
+    font-size: 22px;
+}
+
+#text-rule-container p {
+    margin-bottom: 5px;
+}
+
+
+#buttons-container {
+    display:flex;
+    margin: 10px 200px 0px 200px;
+    justify-content:center;
+    align-content: center;
+    /*border: 5px dotted #407d77;*/
+}
+
+.buttons {
+    width: 170px;
+    height: 170px;
+    padding: 30px;
+    margin: 10px;
+    border: 1px solid #dadada;
+}
+
+#button-rock {
+    background-image: url(./images/rock-right.png);
+    background-size: 100%;
+}
+
+#button-paper {
+    background-image: url(./images/paper-left.png);
+    background-size: 100%;
+}
+
+#button-scissors {
+    background-image: url(./images/scissors-left.png);
+    background-size:100%;
+}
+
+#score-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    width: 300px;
+}
+
+#player-score-container, #computer-score-container {
+    text-align: center;
+    font-size: 20px;
+}
+
+#endScreen-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#text-result {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#restart {
+    width: 130px;
+    height: 40px;
+    border: 1px solid #429790;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: #429790;
+    color: #ffff;
+
+}

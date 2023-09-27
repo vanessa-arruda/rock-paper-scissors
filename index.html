@@ -1,8 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script type="text/javascript" src="scripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <title>Rock Paper Scissors Game</title>
     </head>
     <body>
+        <div id="main-container">
+            <header class="top-container">
+                <img id="logo-img" src="https://cdn-icons-png.flaticon.com/512/6688/6688580.png" alt="three hands drawing">
+                <h1 id="game-title">Rock Paper Scissors Game</h1>
+            </header>
+            <div id="text-rule-container">
+                <p>Play the game <em>against the computer</em> and check if you are <b>lucky</b> today!
+                Choose one of the options below.</p>
+                <p><b>Rule</b>: You need to win the <em>5 rounds</em>.</p>
+            </div>
+            <div id="buttons-container">
+                <button id="button-rock" class="buttons"></button>
+                <button id="button-paper" class="buttons"></button>
+                <button id="button-scissors" class="buttons"></button>
+            </div>
+            <div id="score-container">
+                <div id="player-score-container">
+                    <h3>Player</h3>
+                    <p id="player-score">0</p>
+                </div>
+                <div id="computer-score-container">
+                    <h3>Computer</h3>
+                    <p id="computer-score">0</p>
+                </div>
+            </div>
+            <div id="endScreen-container">
+                <div id="text-result"></div>
+                <button id="restart" class="button-restart">Restart Game</button>
+            </div>
+        </div>
+        <script type="text/javascript" src="scripts.js"></script>
     </body>
 </html>
